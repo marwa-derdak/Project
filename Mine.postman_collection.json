@@ -1,0 +1,490 @@
+{
+	"info": {
+		"_postman_id": "232bf579-7db0-4055-a2cc-59cb3e12315e",
+		"name": "Mine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15620475"
+	},
+	"item": [
+		{
+			"name": "Create products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3NDE1MTgyNzgsImV4cCI6MTc0MTYwNDY3OH0.jYDknA_zrC7OWFl6nYF-HdWECajhP_4iZmpLVReq4JA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"code\": \"00003\",\r\n  \"name\": \"Toy1\",\r\n  \"description\": \"High-quality noise-canceling wireless headphones.\",\r\n  \"image\": \"https://example.com/toy.jpg\",\r\n  \"category\": \"Electronics\",\r\n  \"price\": 300.00,\r\n  \"quantity\": 45,\r\n  \"internalReference\": \"WH-2024\",\r\n  \"rating\": 4.5,\r\n  \"shellId\": 1012,\r\n  \"inventoryStatus\": \"LOWSTOCK\",\r\n  \"createdAt\": \"2024-04-09T12:00:00Z\",\r\n  \"updatedAt\": \"2024-12-09T12:00:00Z\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign in user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"derdak1@gmail.com\",\r\n    \"password\": \"123derdak\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign in admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"admin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3NDE1MTkwMDAsImV4cCI6MTc0MTYwNTQwMH0.YXp_62drb7_0co8V_9tKwmhlbaACo8Ti9swgfyel4hw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"code\": \"00003\",\r\n  \"name\": \"TV\",\r\n  \"description\": \"High-quality noise-canceling TV.\",\r\n  \"image\": \"https://example.com/tTVoy.jpg\",\r\n  \"category\": \"Electronics\",\r\n  \"price\": 1200.99,\r\n  \"quantity\": 100,\r\n  \"internalReference\": \"WH-2024\",\r\n  \"rating\": 4.5,\r\n  \"shellId\": 1012,\r\n  \"inventoryStatus\": \"INSTOCK\",\r\n  \"createdAt\": \"2024-04-09T12:00:00Z\",\r\n  \"updatedAt\": \"2024-12-09T12:00:00Z\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/products/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajouter un produit au Panier",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXJkYWsxQGdtYWlsLmNvbSIsImlhdCI6MTc0MTUyMTUwNiwiZXhwIjoxNzQxNjA3OTA2fQ.WbwuDJl5Mfq7eIg3eWcPeE37j7kT1z7bsBqKLMs3nUk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\" : \"67cc659a7998ed6f065c228a\",\r\n    \"products\" : [ \r\n       {\r\n  \"id\": \"67cd918ea00af12b55682281\",\r\n  \"code\": \"00006\",\r\n  \"name\": \"toy2\",\r\n  \"description\": \"High-quality noise-canceling wireless headphones.\",\r\n  \"image\": \"https://example.com/toy.jpg\",\r\n  \"category\": \"Electronics\",\r\n  \"price\": 600.00,\r\n  \"quantity\": 45,\r\n  \"internalReference\": \"WH-2024\",\r\n  \"rating\": 4.5,\r\n  \"shellId\": 1012,\r\n  \"inventoryStatus\": \"LOWSTOCK\",\r\n  \"createdAt\": \"2024-04-09T12:00:00Z\",\r\n  \"updatedAt\": \"2024-12-09T12:00:00Z\"\r\n}\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/panier/ajout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"panier",
+						"ajout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Panier d'un utilisateur",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXJkYWsxQGdtYWlsLmNvbSIsImlhdCI6MTc0MTUyNDUyNiwiZXhwIjoxNzQxNjEwOTI2fQ.987vaPbbyg51cqA7t8BjE5fujhZIimZ-s7eT4K7n-hM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/panier/67cc659a7998ed6f065c228a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"panier",
+						"67cc659a7998ed6f065c228a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove product from panier",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXJkYWsxQGdtYWlsLmNvbSIsImlhdCI6MTc0MTUyNTczMywiZXhwIjoxNzQxNjEyMTMzfQ.kcKy_UWOU9-8jEiu7mQpthfq6EkLwwVhVjbc5k6gyTA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/panier/remove?userId=67cc659a7998ed6f065c228a&productId=67cd918ea00af12b55682281",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"panier",
+						"remove"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "67cc659a7998ed6f065c228a"
+						},
+						{
+							"key": "productId",
+							"value": "67cd918ea00af12b55682281"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajouter des produits dans wishlist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXJkYWsxQGdtYWlsLmNvbSIsImlhdCI6MTc0MTUyNTczMywiZXhwIjoxNzQxNjEyMTMzfQ.kcKy_UWOU9-8jEiu7mQpthfq6EkLwwVhVjbc5k6gyTA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\" : \"67cc659a7998ed6f065c228a\",\r\n    \"products\" : [ \r\n     {\r\n        \"id\": \"67cd771a5da0b659fdd90769\",\r\n        \"code\": \"00003\",\r\n        \"name\": \"TV\",\r\n        \"description\": \"High-quality noise-canceling TV.\",\r\n        \"image\": \"https://example.com/tTVoy.jpg\",\r\n        \"category\": \"Electronics\",\r\n        \"price\": 1200.99,\r\n        \"quantity\": 100,\r\n        \"internalReference\": \"WH-2024\",\r\n        \"shellId\": 1012,\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 4.5,\r\n        \"createdAt\": \"2024-04-09T12:00:00.000+00:00\",\r\n        \"updatedAt\": \"2024-12-09T12:00:00.000+00:00\"\r\n    },\r\n    {\r\n        \"id\": \"67cd918ea00af12b55682281\",\r\n        \"code\": \"00006\",\r\n        \"name\": \"toy2\",\r\n        \"description\": \"High-quality noise-canceling wireless headphones.\",\r\n        \"image\": \"https://example.com/toy.jpg\",\r\n        \"category\": \"Electronics\",\r\n        \"price\": 600.0,\r\n        \"quantity\": 45,\r\n        \"internalReference\": \"WH-2024\",\r\n        \"shellId\": 1012,\r\n        \"inventoryStatus\": \"LOWSTOCK\",\r\n        \"rating\": 4.5,\r\n        \"createdAt\": \"2024-04-09T12:00:00.000+00:00\",\r\n        \"updatedAt\": \"2024-12-09T12:00:00.000+00:00\"\r\n    }\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/envielist/ajout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"envielist",
+						"ajout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove one product from wishlist ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXJkYWsxQGdtYWlsLmNvbSIsImlhdCI6MTc0MTUyNTczMywiZXhwIjoxNzQxNjEyMTMzfQ.kcKy_UWOU9-8jEiu7mQpthfq6EkLwwVhVjbc5k6gyTA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/envielist/remove?userId=67cc659a7998ed6f065c228a&productId=67cd918ea00af12b55682281",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"envielist",
+						"remove"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "67cc659a7998ed6f065c228a"
+						},
+						{
+							"key": "productId",
+							"value": "67cd918ea00af12b55682281"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getWislist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXJkYWsxQGdtYWlsLmNvbSIsImlhdCI6MTc0MTUyNTczMywiZXhwIjoxNzQxNjEyMTMzfQ.kcKy_UWOU9-8jEiu7mQpthfq6EkLwwVhVjbc5k6gyTA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/envielist/67cc659a7998ed6f065c228a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"envielist",
+						"67cc659a7998ed6f065c228a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProductById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3NDE1MzczMTAsImV4cCI6MTc0MTYyMzcxMH0.udahqdQG1r71_-NYRJTS5CspQrQ8FPd_S0NH_6bXEn8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/products/67cd771a5da0b659fdd90769",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products",
+						"67cd771a5da0b659fdd90769"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3NDE1MzczMTAsImV4cCI6MTc0MTYyMzcxMH0.udahqdQG1r71_-NYRJTS5CspQrQ8FPd_S0NH_6bXEn8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"67cd771a5da0b659fdd90769\",\r\n\"code\":\"00003\",\r\n\"name\":\"TV\",\r\n\"description\":\"High-quality noise-canceling TV.\",\r\n\"image\":\"https://example.com/tTVoy.jpg\",\r\n\"category\":\"Electronics\",\r\n\"price\":400,\r\n\"quantity\":100,\r\n\"internalReference\":\"WH-2024\",\r\n\"shellId\":1012,\"inventoryStatus\":\"INSTOCK\",\r\n\"rating\":1.5,\r\n\"createdAt\":\"2024-04-09T12:00:00.000+00:00\",\r\n\"updatedAt\":\"2024-12-09T12:00:00.000+00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/products/67cd771a5da0b659fdd90769",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products",
+						"67cd771a5da0b659fdd90769"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3NDE1MzczMTAsImV4cCI6MTc0MTYyMzcxMH0.udahqdQG1r71_-NYRJTS5CspQrQ8FPd_S0NH_6bXEn8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/products/67cd771a5da0b659fdd90769",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products",
+						"67cd771a5da0b659fdd90769"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
